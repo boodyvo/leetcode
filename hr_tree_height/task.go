@@ -1,12 +1,7 @@
 package task
 
 import (
-	"bufio"
-	"fmt"
 	"math"
-	"os"
-	"strconv"
-	"strings"
 )
 
 type Node struct {
@@ -60,34 +55,4 @@ func solve(n int, nodes []int) int {
 	}
 
 	return root.Height()
-}
-
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	input, _ := reader.ReadString('\n')
-	input = strings.TrimSpace(input)
-
-	n, err := strconv.Atoi(input)
-	if err != nil {
-		fmt.Println("err")
-		return
-	}
-
-	input, _ = reader.ReadString('\n')
-	input = strings.TrimSpace(input)
-	numbers := strings.Split(input, " ")
-
-	nodes := make([]int, 0, len(numbers))
-
-	for _, num := range numbers {
-		parsedNum, err := strconv.Atoi(num)
-		if err != nil {
-			fmt.Println("err")
-			return
-		}
-
-		nodes = append(nodes, parsedNum)
-	}
-
-	solve(n, nodes)
 }
